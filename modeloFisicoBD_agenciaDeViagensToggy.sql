@@ -1,0 +1,33 @@
+-- Geração de Modelo físico
+-- Sql ANSI 2003 - brModelo.
+
+
+
+CREATE TABLE Compra (
+NUM_Compra VARCHAR(10) PRIMARY KEY,
+COD_Viagem VARCHAR(10),
+CPF VARCHAR(11)
+)
+
+CREATE TABLE Cliente (
+CPF VARCHAR(11) PRIMARY KEY,
+Nome VARCHAR(50),
+Sexo VARCHAR(1),
+Celular VARCHAR(11),
+E-mail VARCHAR(50),
+Endereço VARCHAR(50),
+Bairro VARCHAR(50),
+Cidade VARCHAR(50),
+Estado VARCHAR(2),
+CEP VARCHAR(8)
+)
+
+CREATE TABLE Viagem (
+COD_Viagem VARCHAR(10) PRIMARY KEY,
+Destino VARCHAR(50),
+Período VARCHAR(30),
+Valor DECIMAL(10)
+)
+
+ALTER TABLE Compra ADD FOREIGN KEY(COD_Viagem) REFERENCES Viagem (COD_Viagem)
+ALTER TABLE Compra ADD FOREIGN KEY(CPF) REFERENCES Cliente (CPF)
